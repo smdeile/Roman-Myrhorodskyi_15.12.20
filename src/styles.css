@@ -1,0 +1,228 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+h1 {
+  text-align: center;
+}
+body {
+  position: relative;
+  top: 0;
+  margin: 0;
+}
+.lists-block {
+  display: flex;
+}
+.movies__list {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  min-width: 320px;
+}
+.favorite__block {
+  width: 30%;
+  min-width: 220px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.favorite__list p {
+  text-align: center;
+}
+.favorite__list--header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 5px 10px 5px;
+}
+.favorite__list--item {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.favorite__list--item p {
+  margin: 0;
+}
+.favorite__list--header h2 {
+  margin: 0;
+}
+.favorite__block .star-button {
+  background-image: url('./public/images/starLike.png');
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+.movies__item {
+  position: relative;
+  background-color: rgb(248, 241, 241);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: zoom-in;
+}
+.star-button {
+  cursor: pointer;
+  position: absolute;
+  background-image: url('./public/images/starUnlike.png');
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  height: 48px;
+  width: 48px;
+  border: none;
+  right: -20px;
+  top: -20px;
+}
+.like {
+  background-image: url('./public/images/starLike.png');
+}
+.movies__list li img {
+  width: 100%;
+}
+
+.modal__background {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(245, 245, 245, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.modal {
+  z-index: 99;
+  position: fixed;
+  width: 90%;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #ccc;
+  background-color: rgb(240, 239, 239);
+  padding: 20px;
+  overflow: hidden;
+}
+.modal .star-button {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.modal__close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+}
+.modal__image-description-block {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.modal__image-block {
+  height: 100%;
+  margin-right: 20px;
+}
+.modal__movie-description {
+  width: 65%;
+}
+.modal__image-description-block .modal__image {
+  width: auto;
+  height: 100%;
+}
+.modal__bottom-block {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+}
+.modal__bottom-block--left-side {
+  width: 30%;
+}
+.modal__bottom-block--right-side {
+  width: 65%;
+}
+.modal__bottom-block--star-year {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 5px 0;
+}
+.modal__bottom-block--starring-block {
+  display: flex;
+  flex-wrap: wrap;
+}
+.modal__bottom-block--starring-block p {
+  margin: 4px;
+}
+.genres__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.genres__item {
+  background-color: rgb(216, 205, 205);
+  border-radius: 5px;
+  min-width: 50px;
+}
+.genres__item p {
+  margin: 2px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .lists-block {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .modal {
+    overflow-y: scroll;
+  }
+  .modal__image-block {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+  .favorite__block {
+    width: 100%;
+  }
+  .movies__list {
+    width: 100%;
+  }
+  .modal__image-description-block {
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal__movie-description {
+    width: 100%;
+  }
+  .modal__image {
+    width: 100%;
+    height: auto;
+  }
+  .modal__bottom-block {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .modal__bottom-block--left-side {
+    width: 100%;
+  }
+  .modal__bottom-block--right-side {
+    width: 100%;
+  }
+}

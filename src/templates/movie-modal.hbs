@@ -1,0 +1,40 @@
+<li class="modal__background">
+    <article class="modal">
+        <div class="modal__image-description-block">
+            <div class="modal__image-block"><img src="{{img}}" alt="{{name}}" class="modal__image"></div>
+            <div class="modal__movie-description">
+                <h2>{{name}}</h2>
+                <p>{{description}}</p>
+            </div>
+            <button class="modal__close-button" id='close{{id}}'>X</button>
+        </div>
+        <div class="modal__bottom-block">
+            <div class="modal__bottom-block--left-side">
+                <div class="modal__bottom-block--star-year">
+                    <div class="star-button" id="{{id}}"></div>
+                    <p>{{year}}</p>
+                </div>
+                <ul class="genres__list list">
+                    {{#each genres}}
+                    <li class="genres__item">
+                        <p>{{this}}</p>
+                    </li>
+                    {{/each }}
+                </ul>
+            </div>
+            <div class="modal__bottom-block--right-side">
+                <h3>Director: {{director}}</h3>
+                <ul class="modal__bottom-block--starring-block list">
+                    <li>
+                        <p>Starring:</p>
+                    </li>
+                    {{#each starring}}
+                    <li>
+                        <p>{{this}}</p>
+                    </li>
+                    {{/each }}
+                </ul>
+            </div>
+        </div>
+    </article>
+</li>
