@@ -8,6 +8,7 @@ const moviesListElement = document.querySelector('.movies__list');
 const favoriteList = document.querySelector('.favorite__list');
 
 const getFavoriteMovies = () => localStorage.getItem('favoriteMovies');
+let allMovies;
 const arrayFavorite = getFavoriteMovies()?.split(',');
 
 if (getFavoriteMovies() === null) {
@@ -16,14 +17,22 @@ if (getFavoriteMovies() === null) {
 
 function checkFavoritesList() {
   if (getFavoriteMovies()) {
-    const markupFavoriteList = favoriteItem(
-      getFavoriteMovies()
-        .split(',')
-        .sort(function (a, b) {
-          return a - b;
-        }),
-    );
-    favoriteList.innerHTML = markupFavoriteList;
+    const arr = getFavoriteMovies().split(',');
+    const arrFavoriteMovies = [];
+    allMovies?.map(el => {
+      for (let i = 0; i < arr.length; i += 1) {
+        if (arr[i] == el.id) {
+          arrFavoriteMovies.push(el);
+        }
+      }
+    });
+    if (arrFavoriteMovies.length > 0) {
+      const markupFavoriteList = favoriteItem(arrFavoriteMovies);
+      favoriteList.innerHTML = markupFavoriteList;
+    } else {
+      favoriteList.innerHTML =
+        '<li><p>There are no favorite movies yet</p></li>';
+    }
   } else {
     favoriteList.innerHTML = '<li><p>There are no favorite movies yet</p></li>';
   }
@@ -135,11 +144,11 @@ function handleClick(event) {
 fetchMovies()
   .then(moviesList => {
     moviesListElement.insertAdjacentHTML('beforeend', listItem(moviesList));
+    allMovies = moviesList;
   })
   .then(() => {
     moviesListElement.addEventListener('click', handleClick);
     checkFavoritesList();
-
     favoriteList.addEventListener('click', removeFavoriteFromList);
     arrayFavorite?.map(el => toggleLikeMovie(el));
   });

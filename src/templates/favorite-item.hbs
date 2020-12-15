@@ -1,6 +1,6 @@
 {{#each this}}
-<li class="favorite__list--item" id='favoriteItem{{ this }}'>
-    <p>Movie {{ this }}</p>
-    <button class="favorite__delete-button" id='{{ this }}'>X</button>
+<li class="favorite__list--item" id='favoriteItem{{ id }}'>
+    <p>{{ name }}</p>
+    <button class="favorite__delete-button" id='{{ id }}'>X</button>
 </li>
 {{/each}}
